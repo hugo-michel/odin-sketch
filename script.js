@@ -4,6 +4,10 @@ const btn = document.querySelector("#btn");
 //prompt taille du pad
 btn.addEventListener("click", () => {
 	let taille = prompt("quelle taille souhaitez-vous ?");
+    if (taille > 100) {
+        alert("la taille maximal est de 100 * 100 ! ");
+        return;
+    }
 	//rm les cellules du container
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
