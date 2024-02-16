@@ -4,10 +4,10 @@ const btn = document.querySelector("#btn");
 //prompt taille du pad
 btn.addEventListener("click", () => {
 	let taille = prompt("quelle taille souhaitez-vous ?");
-    if (taille > 100) {
-        alert("la taille maximal est de 100 * 100 ! ");
-        return;
-    }
+	if (taille > 100) {
+		alert("la taille maximal est de 100 * 100 ! ");
+		return;
+	}
 	//rm les cellules du container
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
@@ -33,7 +33,15 @@ function createPad(taille) {
 	//event chgmt couleur
 	cells.forEach((cell) => {
 		cell.addEventListener("mouseover", () => {
-			cell.classList.add("black");
+			cell.style.backgroundColor = randomColor();
 		});
 	});
+}
+
+function randomColor() {
+	let red = Math.floor(Math.random() * 256);
+	let green = Math.floor(Math.random() * 256);
+	let blue = Math.floor(Math.random() * 256);
+	let color = "rgb(" + `${red}` + " " + `${green}` + " " + `${blue}` + ")";
+	return color;
 }
