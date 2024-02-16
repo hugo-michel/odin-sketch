@@ -5,7 +5,7 @@ const btn = document.querySelector("#btn");
 btn.addEventListener("click", () => {
 	let taille = prompt("quelle taille souhaitez-vous ?");
 	if (taille > 100) {
-		alert("la taille maximal est de 100 * 100 ! ");
+		alert("la taille maximale est de 100 * 100 ! ");
 		return;
 	}
 	//rm les cellules du container
@@ -32,8 +32,17 @@ function createPad(taille) {
 
 	//event chgmt couleur
 	cells.forEach((cell) => {
-		cell.addEventListener("mouseover", () => {
+		cell.addEventListener("mouseover", (event) => {
+            if (event.buttons === 1) {
 			cell.style.backgroundColor = randomColor();
+            }
+		});
+	});
+
+    cells.forEach((cell) => {
+		cell.addEventListener("mousedown", () => {
+			cell.style.backgroundColor = randomColor();
+            
 		});
 	});
 }
